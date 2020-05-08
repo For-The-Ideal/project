@@ -1,0 +1,56 @@
+#app {
+    background: url("../../../static/loginbg.png") no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.main {
+    background: #fff;
+    position: absolute;
+    right: 15%;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    top: 50%;
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.login-con {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 460px;
+}
+
+.ivu-input-group .ivu-input,
+.ivu-btn-primary {
+    height: 46px;
+    font-size: 16px;
+    text-indent: 10px;
+}
+
+.ivu-btn-primary {
+    margin-top: 40px;
+}
+
+#app>>>.ivu-card-head p,
+.ivu-card-head-inner {
+    line-height: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+#app>>>.ivu-input-group .ivu-input {
+    height: 46px;
+    font-size: 16px;
+    text-indent: 5px;
+}
