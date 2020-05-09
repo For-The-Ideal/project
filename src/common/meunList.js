@@ -69,13 +69,6 @@ export const meunList = {
         ]
     },
     {
-        title: 'CSS3',
-        name: 'css3',
-        path: '/css3',
-        icon: 'logo-css3',
-        children: [],
-    },
-    {
         title: 'JAVASCRIPT',
         name: 'javascript',
         path: '/javascript',
@@ -139,13 +132,6 @@ export const meunList = {
         children: []
     },
     {
-        title: 'PHP',
-        name: 'php',
-        path: '/php',
-        icon: 'ios-cafe',
-        children: []
-    },
-    {
         title: 'NODE',
         name: 'node',
         path: '/node',
@@ -153,9 +139,9 @@ export const meunList = {
         children: []
     },
     {
-        title: 'GO',
-        name: 'go',
-        path: '/go',
+        title: 'KOA',
+        name: 'koa',
+        path: '/koa',
         icon: 'logo-rss',
         children: []
     },

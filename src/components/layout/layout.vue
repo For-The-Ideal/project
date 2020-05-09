@@ -33,10 +33,10 @@
                 </template>
                 <div v-for="(val,v) in item.children" :key="v">
                   <MenuItem :name="val.name">
-                   <template>
-                    <Icon :type="val.icon"></Icon>
-                    <span>{{val.title}}</span>
-                     </template>
+                    <template>
+                      <Icon :type="val.icon"></Icon>
+                      <span>{{val.title}}</span>
+                    </template>
                   </MenuItem>
                 </div>
               </Submenu>
@@ -59,7 +59,11 @@
               <user />
             </MenuItem>
           </div>
-          <BreadcrumbItem class="nav">首页 / 盒模型 / HTML基础 / javascript / class类</BreadcrumbItem>
+          <BreadcrumbItem
+            class="nav"
+            v-for="(items,index) in getbreadCrumbList"
+            :key="index"
+          >{{items.meta.title | getSymbol(items)}}</BreadcrumbItem>
         </Header>
         <Tag
           :value="$route"
@@ -68,7 +72,9 @@
           @on-close="handleCloseTag"
         />
         <Content>
+          <transition>
           <router-view />
+          </transition>
         </Content>
       </Layout>
     </Layout>
@@ -80,7 +86,7 @@ import User from "../user/user";
 import { meunList } from "@/common/meunList";
 import router from "@/router/router";
 import { mapMutations, mapActions, mapGetters } from "vuex";
-import { getNewTagList, routeEqual, getOpenName } from "@/common/function";
+import {getNewTagList,routeEqual,getOpenName,getBreadcrumbTitle} from "@/common/function";
 export default {
   name: "layout",
   components: {
@@ -90,8 +96,14 @@ export default {
   data() {
     return {
       isCollapsed: false,
-      openNames: []
+      openNames: [],
+      forMeunList: []
     };
+  },
+  filters:{ 
+     getSymbol(title){ 
+       return title + ' /'
+     }
   },
   computed: {
     tagNavList() {
@@ -99,6 +111,9 @@ export default {
     },
     getMeunList() {
       return meunList.meunLists;
+    },
+    getbreadCrumbList() {
+      return getBreadcrumbTitle(this.$store.state.breadCrumbList);
     },
     rotateIcon() {
       return ["menu-icon", this.isCollapsed ? "rotate-icon" : ""];

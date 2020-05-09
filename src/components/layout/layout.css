@@ -88,3 +88,6 @@
 .nav {
     font-size: 16px;
 }
+#app >>> .ivu-breadcrumb-item-separator{ 
+    margin: 0px;
+}

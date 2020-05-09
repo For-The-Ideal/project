@@ -159,7 +159,6 @@ export const getOpenName = (list, route) => {
     temp = getMeunList.filter((item, index) => {
         if (Array.isArray(item.children)) {
             var res = getOpenName(item.children, route)
-            console.log(res,'res')
             if (res[index] == route.meta.fatherName) return threeChildren = res
         }
         if (item.name == route.meta.fatherName) return temp[index] = item.name
@@ -167,3 +166,18 @@ export const getOpenName = (list, route) => {
     threeChildren.forEach(v => temp.push(v))
     return temp
 }
+
+export const getBreadcrumbTitle = list => {
+  let BreadcrumbList = [];
+  BreadcrumbList = list.filter(value => {
+      return value.meta.title;
+    }).map(item => {
+      return {
+        icon: item.icon || "",
+        meta: item.meta,
+        name: item.name,
+        path: item.path
+      };
+    });
+  return BreadcrumbList;
+};

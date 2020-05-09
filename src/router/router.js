@@ -18,7 +18,7 @@ export default [{
         name: 'pageHome',
         meta: {
             title: '首页',
-            fatherName: 'home'
+            fatherName: 'home',
         },
         component: () =>
             import('@/pages/home/home')
